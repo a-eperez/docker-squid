@@ -24,6 +24,8 @@ RUN set -ex && \
     libldap \
     libressl \
     libressl-dev \
+    libstdc++ \
+    libgcc \
     libtool \
     linux-pam \
     linux-pam-dev \
@@ -96,5 +98,5 @@ EXPOSE 3128/tcp
 HEALTHCHECK --interval=1m --timeout=3s \
   CMD squidclient -h localhost cache_object://localhost/counters || exit 1
 
-ENTRYPOINT ["/usr/sbin/entry-point.sh"]
-CMD ["/usr/sbin/squid", "-f /etc/squid/squid.conf", "-NYCd", "1"]
+ENTRYPOINT ["/usr/local/sbin/entry-point.sh"]
+CMD ["/usr/sbin/squid", "-f", "/etc/squid/squid.conf", "-NYCd", "1"]
