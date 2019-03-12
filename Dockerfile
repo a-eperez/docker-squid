@@ -97,7 +97,8 @@ RUN apk del \
     libcap-dev \
     libressl-dev \
     linux-pam-dev \
-    openldap-dev
+    openldap-dev && \
+    rm -rf /usr/src
 
 COPY root /
 
