@@ -4,11 +4,21 @@ ARG SQUID_MAJOR_VERSION=4
 ARG SQUID_MENOR_VERSION=6
 ARG SQUID_VERSION=${SQUID_MAJOR_VERSION}.${SQUID_MENOR_VERSION}
 
+ARG BUILD_DATE
+ARG VCS_REF
+ARG VERSION
+
 LABEL maintainer="Ernesto Pérez <ernesto.perez@euigs.com>" \
-  org.label-schema.name="Squid" \
-  org.label-schema.description="Squid docker image based on Alpine Linux." \
-  org.label-schema.vcs-url="https://github.com/a-eperez/docker-squid" \
-  org.label-schema.schema-version="1.0"
+      org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.name="Squid" \
+      org.label-schema.description="Squid docker images based on Alpine Linux" \
+      org.label-schema.url="https://cloud.docker.com/u/euiitgs/repository/docker/euiitgs/squid" \
+      org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.vcs-url="https://github.com/aeperez/docker-squid" \
+      org.label-schema.vendor="EUIGS" \
+      org.label-schema.version=$VERSION \
+      org.label-schema.schema-version="1.0" \
+      maintainer="Ernesto Pérez <ernesto.perez@euigs.com>"
 
 RUN set -ex && \
     apk add --update --no-cache \
