@@ -7,7 +7,13 @@ Minimal Squid docker image based on Alpine Linux 3.8.
 It's recommended that you use host networking when running squid, that you can see the source IP. Otherwise you will see the IP of your docker host.
 
 ```
-docker run --net=host --name=myproxy euiitgs/squid
+docker run -p 3128:3128 --name=myproxy euiitgs/squid
+```
+
+Test proxy.
+
+```
+curl -li --proxy http://localhost:3128 http://wwww.google.com
 ```
 
 To use this proxy, configure your environment or operating system correctly:
@@ -30,7 +36,7 @@ If you want to configure things like authentication, you should overwrite the de
 
 **Via Volume**
 ```
-docker run --net=host --name=squid -v ./squid.conf:/etc/squid/squid.conf euiitgs/squid
+docker run -p 3128:3128 --name=squid -v ./squid.conf:/etc/squid/squid.conf euiitgs/squid
 ```
 
 **Via childimage**
