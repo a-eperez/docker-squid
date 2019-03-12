@@ -4,9 +4,9 @@ ARG SQUID_MAJOR_VERSION=4
 ARG SQUID_MENOR_VERSION=6
 ARG SQUID_VERSION=${SQUID_MAJOR_VERSION}.${SQUID_MENOR_VERSION}
 
-ARG BUILD_DATE
-ARG VCS_REF
-ARG VERSION
+ARG BUILD_DATE=0
+ARG VCS_REF=0
+ARG VERSION=$SQUID_VERSION
 
 LABEL maintainer="Ernesto Pérez <ernesto.perez@euigs.com>" \
       org.label-schema.build-date=$BUILD_DATE \
@@ -18,7 +18,6 @@ LABEL maintainer="Ernesto Pérez <ernesto.perez@euigs.com>" \
       org.label-schema.vendor="EUIGS" \
       org.label-schema.version=$VERSION \
       org.label-schema.schema-version="1.0" \
-      maintainer="Ernesto Pérez <ernesto.perez@euigs.com>"
 
 RUN set -ex && \
     apk add --update --no-cache \
