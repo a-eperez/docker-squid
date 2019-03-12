@@ -17,7 +17,7 @@ LABEL maintainer="Ernesto Pérez <ernesto.perez@euigs.com>" \
       org.label-schema.vcs-url="https://github.com/aeperez/docker-squid" \
       org.label-schema.vendor="EUIGS" \
       org.label-schema.version=$VERSION \
-      org.label-schema.schema-version="1.0" \
+      org.label-schema.schema-version="1.0"
 
 RUN set -ex && \
     apk add --update --no-cache \
