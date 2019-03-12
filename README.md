@@ -1,15 +1,13 @@
 # Squid
 
-Minimal Squid docker image based on Alpine Linux 3.7.
-
-[![](https://images.microbadger.com/badges/version/rootlogin/squid.svg)](https://microbadger.com/images/rootlogin/squid "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/rootlogin/squid.svg)](https://microbadger.com/images/rootlogin/squid "Get your own image badge on microbadger.com")
+Minimal Squid docker image based on Alpine Linux 3.8.
 
 ## Usage
 
 It's recommended that you use host networking when running squid, that you can see the source IP. Otherwise you will see the IP of your docker host.
 
 ```
-docker run --net=host --name=myproxy rootlogin/squid
+docker run --net=host --name=myproxy euiitgs/squid
 ```
 
 To use this proxy, configure your environment or operating system correctly:
@@ -23,8 +21,8 @@ export https_proxy=http://PROXY_HOST:3128
 
 ### Volumes
 
-* **/cache**: Here goes the squid cache
-* **/logs**: Here goes the squid logs
+*   **/var/cache/squid**: Here goes the squid cache
+*   **/var/logs/squid**: Here goes the squid logs
 
 ## Configuration
 
@@ -32,12 +30,12 @@ If you want to configure things like authentication, you should overwrite the de
 
 **Via Volume**
 ```
-docker run --net=host --name=myproxy -v ./mysquid.conf:/etc/squid/squid.conf rootlogin/squid
+docker run --net=host --name=squid -v ./squid.conf:/etc/squid/squid.conf euiitgs/squid
 ```
 
 **Via childimage**
 ```
-FROM rootlogin/squid
+FROM euiitgs/squid
 
-COPY mysquid.conf /etc/squid/squid.conf
+COPY squid.conf /etc/squid/squid.conf
 ```
